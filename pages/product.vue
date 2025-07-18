@@ -1,6 +1,13 @@
 <template>
   <v-layout>
     <v-flex class="text-center">
+      <!-- รูปภาพโปรโมท -->
+      <img
+        src="/promo.jpg"
+        alt="รูปภาพโปรโมทสินค้า"
+        class="mb-5"
+        style="max-width: 100%; height: auto;"
+      >
       <img
         src="/v.png"
         alt="Vuetify.js"

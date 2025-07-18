@@ -1,87 +1,70 @@
 <template>
-  <div class="welcome-container page-container">
+  <div class="welcome-container">
     <div class="welcome-card">
-      <h1>ยินดีต้อนรับสมาชิกใหม่!</h1>
-      <p>
-        ขอบคุณที่เข้าร่วมกับเรา!<br />
-        เราหวังว่าคุณจะได้รับประสบการณ์ที่ดีและสนุกสนานกับบริการของเรา
-      </p>
-      <button class="start-btn" @click="goToHome">เริ่มต้นใช้งาน</button>
+      <h1>ยินดีต้อนรับ</h1>
+      <p>ขอบคุณที่เข้ามาเยี่ยมชมเว็บไซต์ของเรา</p>
+      <button class="welcome-btn">เข้าสู่หน้าหลัก</button>
     </div>
   </div>
 </template>
 
-<script>
-// For Nuxt 2 Options API, import useRouter if using directly in setup.
-// If using Options API style, this is how you'd access router.
-export default {
-  name: 'WelcomePage',
-  methods: {
-    goToHome() {
-      this.$router.push({ name: 'index' }); // Nuxt automatically names the root page 'index'
-    }
-  }
-}
+<script setup>
+// สามารถใส่ฟังก์ชันนำทาง เช่น useRouter().push('/') ได้ตรงนี้
 </script>
 
 <style scoped>
+/* พื้นหลังแบบ gradient ที่นุ่มตา */
 .welcome-container {
-  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+  font-family: 'Segoe UI', 'Noto Sans Thai', sans-serif;
 }
 
+/* กล่องข้อความที่ดูมีมิติ */
 .welcome-card {
-  background: #fff;
-  padding: 2.5rem 2rem;
-  border-radius: 1.5rem;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.12);
+  background: #ffffff;
+  padding: 3rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
   text-align: center;
-  max-width: 400px;
+  max-width: 420px;
   width: 100%;
 }
 
-h1 {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #2d3748;
+/* หัวข้อหลัก */
+.welcome-card h1 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #1a202c;
   margin-bottom: 1rem;
-  letter-spacing: 1px;
 }
 
-p {
-  color: #4a5568;
+/* ข้อความรอง */
+.welcome-card p {
   font-size: 1.1rem;
+  color: #4a5568;
   margin-bottom: 2rem;
   line-height: 1.6;
 }
 
-.start-btn {
-  background: linear-gradient(90deg, #667eea 0%, #5a67d8 100%);
-  color: #fff;
+/* ปุ่มหลัก */
+.welcome-btn {
+  background-color: #1a202c;
+  color: #ffffff;
   border: none;
   padding: 0.75rem 2rem;
-  border-radius: 2rem;
+  border-radius: 999px;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background-color 0.2s ease;
 }
 
-.start-btn:hover {
-  background: linear-gradient(90deg, #5a67d8 0%, #667eea 100%);
+/* เมื่อ hover ปุ่ม */
+.welcome-btn:hover {
+  background-color: #2d3748;
 }
-
-/* If you want to include the logo, uncomment this and the img tag in template */
-/* .vuetify-logo {
-  height: 120px;
-  width: 120px;
-  transform: rotateY(560deg);
-  animation: turn 3.5s ease-out forwards 1s;
-  margin-bottom: 1rem;
-}
-
-@keyframes turn {
-  100% {
-    transform: rotateY(0deg);
-  }
-} */
 </style>

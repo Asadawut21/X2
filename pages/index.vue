@@ -1,13 +1,18 @@
 <template>
   <div class="page-container">
     <div class="content-card">
-      <h1>ยินดีต้อนรับสู่เว็บไซต์ของเรา!</h1>
+      <h1 style="background: linear-gradient(90deg, #6dd5ed 0%, #2193b0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+        RAGNA SHOP
+      </h1>
       <p>
-        นี่คือหน้าหลักของเว็บไซต์<br />
-        คุณสามารถสำรวจส่วนต่างๆ ของเว็บไซต์ได้จากแถบนำทางด้านบน
+        [บริการขายของต่างๆ]<br />
+        
       </p>
       <NuxtLink to="/register" class="action-btn">
-        สมัครสมาชิกเลย!
+        สมัครสมาชิก
+            </NuxtLink>
+            <NuxtLink to="/login" class="action-btn" style="margin-left: 1rem;">
+        เข้าสู่ระบบ
       </NuxtLink>
     </div>
   </div>
@@ -25,7 +30,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
   padding: 20px;
   text-align: center;
 }
