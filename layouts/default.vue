@@ -77,9 +77,7 @@ export default {
         { icon: 'mdi-home', title: 'หน้าหลัก', to: '/' },
         { icon: 'mdi-shopping', title: 'สินค้า', to: '/product' },
         { icon: 'mdi-account-plus', title: 'สมัครสมาชิก', to: '/register' },
-        { icon: 'mdi-hand-wave', title: 'หน้าต้อนรับ', to: '/welcome' },
         { icon: 'mdi-login', title: 'ล็อคอิน', to: '/login' },
-        { icon: 'mdi-login-variant', title: 'ล็อคอินแอดมิน', to: '/loginadmin' },
         { icon: 'mdi-contact', title: 'ติดต่อเรา', to: '/contact' },
       ]
     }

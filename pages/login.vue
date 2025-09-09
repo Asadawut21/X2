@@ -50,87 +50,85 @@ function handleLogin() {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #ffffff 0%,   #ffffff 100%);
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 
 .login-card {
   background: #fff;
   padding: 2.5rem 2rem;
   border-radius: 1.5rem;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
-  min-width: 340px;
-  max-width: 90vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 380px;
 }
 
 .login-title {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: bold;
-  color: #2575fc;
-  margin-bottom: 1.5rem;
-  letter-spacing: 1px;
+  color: #333;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
 .input-group {
   width: 100%;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.5rem;
 }
 
 .input-group label {
   display: block;
   margin-bottom: 0.5rem;
-  color: #333;
+  color: #555;
   font-weight: 500;
 }
 
 .input-group input {
   width: 100%;
-  padding: 0.7rem 1rem;
-  border: 1px solid #e0e0e0;
-  border-radius: 0.8rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
   font-size: 1rem;
-  transition: border 0.2s;
-  outline: none;
+  transition: all 0.2s;
 }
 
 .input-group input:focus {
-  border: 1.5px solid #2575fc;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  outline: none;
 }
 
 .login-btn {
   width: 100%;
-  padding: 0.8rem;
-  background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+  padding: 0.9rem;
+  background: linear-gradient(90deg, #007bff 0%, #0056b3 100%);
   color: #fff;
   font-size: 1.1rem;
   font-weight: bold;
   border: none;
-  border-radius: 0.8rem;
+  border-radius: 0.5rem;
   cursor: pointer;
-  transition: background 0.2s, box-shadow 0.2s;
-  box-shadow: 0 2px 8px rgba(37, 117, 252, 0.15);
+  transition: all 0.2s;
 }
 
 .login-btn:hover {
-  background: linear-gradient(90deg, #2575fc 0%, #6a11cb 100%);
-  box-shadow: 0 4px 16px rgba(37, 117, 252, 0.25);
+  background: linear-gradient(90deg, #0056b3 0%, #007bff 100%);
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
 }
 
 .login-footer {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+  text-align: center;
 }
 
 .login-footer a {
-  color: #6a11cb;
+  color: #007bff;
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   transition: color 0.2s;
 }
 
 .login-footer a:hover {
-  color: #2575fc;
+  color: #0056b3;
   text-decoration: underline;
 }
 </style>
