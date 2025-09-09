@@ -17,7 +17,7 @@
         </div>
     </div>
 </template>
-
+git config --global user.name "Your Name"
 <style scoped>
 .contact-container {
     min-height: 100vh;
