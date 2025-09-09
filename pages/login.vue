@@ -1,134 +1,116 @@
 <template>
-  <div class="login-container">
-    <div class="login-card">
-      <h2 class="login-title">เข้าสู่ระบบ</h2>
+  <div class="form-container">
+    <div class="form-card">
+      <img src="/xx2.png" alt="Logo" class="page-logo" />
+      <h2 class="form-title">เข้าสู่ระบบ</h2>
       <form @submit.prevent="handleLogin">
         <div class="input-group">
           <label for="email">อีเมล</label>
-          <input
-            id="email"
-            v-model="email"
-            type="email"
-            placeholder="กรอกอีเมลของคุณ"
-            required
-          />
+          <input id="email" v-model="email" type="email" required />
         </div>
         <div class="input-group">
           <label for="password">รหัสผ่าน</label>
-          <input
-            id="password"
-            v-model="password"
-            type="password"
-            placeholder="กรอกรหัสผ่าน"
-            required
-          />
+          <input id="password" v-model="password" type="password" required />
         </div>
-        <button class="login-btn" type="submit">เข้าสู่ระบบ</button>
+        <button class="form-btn" type="submit">เข้าสู่ระบบ</button>
       </form>
-      <div class="login-footer">
+      <div class="form-footer">
         <a href="#">ลืมรหัสผ่าน?</a>
       </div>
     </div>
   </div>
 </template>
 
-<script setup>
-import { ref } from 'vue'
-
-const email = ref('')
-const password = ref('')
-
-function handleLogin() {
-  // ใส่ logic การล็อคอินที่นี่
-  alert(`อีเมล: ${email.value}\nรหัสผ่าน: ${password.value}`)
-}
+<script>
+export default {
+  data() {
+    return {
+      email: '',
+      password: '',
+    };
+  },
+  methods: {
+    handleLogin() {
+      alert(`อีเมล: ${this.email}\nรหัสผ่าน: ${this.password}`);
+    },
+  },
+};
 </script>
 
 <style scoped>
-.login-container {
-  min-height: 100vh;
+.form-container {
+  min-height: calc(100vh - 64px);
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 2rem;
 }
-
-.login-card {
+.form-card {
   background: #fff;
-  padding: 2.5rem 2rem;
-  border-radius: 1.5rem;
+  padding: 2.5rem;
+  border-radius: 24px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 380px;
-}
-
-.login-title {
-  font-size: 2.2rem;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 2rem;
+  max-width: 400px;
   text-align: center;
 }
-
-.input-group {
-  width: 100%;
+.page-logo {
+  max-width: 120px;
   margin-bottom: 1.5rem;
 }
-
+.form-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 2rem;
+}
+.input-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
 .input-group label {
   display: block;
   margin-bottom: 0.5rem;
   color: #555;
   font-weight: 500;
 }
-
 .input-group input {
   width: 100%;
   padding: 0.8rem 1rem;
   border: 1px solid #ddd;
-  border-radius: 0.5rem;
+  border-radius: 8px;
   font-size: 1rem;
   transition: all 0.2s;
 }
-
 .input-group input:focus {
   border-color: #007bff;
   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
   outline: none;
 }
-
-.login-btn {
+.form-btn {
   width: 100%;
   padding: 0.9rem;
-  background: linear-gradient(90deg, #007bff 0%, #0056b3 100%);
+  background-color: #007bff;
   color: #fff;
   font-size: 1.1rem;
-  font-weight: bold;
+  font-weight: 600;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s;
 }
-
-.login-btn:hover {
-  background: linear-gradient(90deg, #0056b3 0%, #007bff 100%);
+.form-btn:hover {
+  background-color: #0056b3;
   box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
 }
-
-.login-footer {
+.form-footer {
   margin-top: 1.5rem;
-  text-align: center;
 }
-
-.login-footer a {
+.form-footer a {
   color: #007bff;
   text-decoration: none;
-  font-size: 0.9rem;
-  transition: color 0.2s;
 }
-
-.login-footer a:hover {
-  color: #0056b3;
+.form-footer a:hover {
   text-decoration: underline;
 }
 </style>

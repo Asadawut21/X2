@@ -1,19 +1,17 @@
 <template>
   <v-app dark>
-    <!-- App Bar -->
     <v-app-bar
       app
       color="primary"
       dark
       class="custom-app-bar"
     >
-      <!-- ชื่อเว็บ -->
+      <img src="/xx2.png" alt="RAGNA SHOP Logo" class="site-logo" @click="$router.push('/')" />
+
       <v-toolbar-title class="text-h5 font-weight-bold">RAGNA SHOP</v-toolbar-title>
 
-      <!-- Spacer -->
       <v-spacer />
 
-      <!-- เมนูที่เคยอยู่ใน Navigation Drawer -->
       <v-btn
         v-for="(item, i) in items"
         :key="i"
@@ -26,20 +24,17 @@
         {{ item.title }}
       </v-btn>
 
-      <!-- ปุ่มตั้งค่า -->
       <v-btn icon @click.stop="rightDrawer = !rightDrawer">
         <v-icon>mdi-cog</v-icon>
       </v-btn>
     </v-app-bar>
 
-    <!-- Main Content -->
     <v-main>
       <v-container fluid class="main-content-container">
         <nuxt />
       </v-container>
     </v-main>
 
-    <!-- Right Drawer (ตั้งค่า) -->
     <v-navigation-drawer
       v-model="rightDrawer"
       :right="right"
@@ -57,7 +52,6 @@
       </v-list>
     </v-navigation-drawer>
 
-    <!-- Footer -->
     <v-footer :fixed="fixed" app class="custom-footer">
       <span>&copy; {{ new Date().getFullYear() }}</span>
       <v-spacer />
@@ -101,6 +95,13 @@ html, body, #__nuxt, #__layout, .v-application {
 
 .custom-app-bar {
   border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+.site-logo {
+  height: 40px; /* ปรับขนาดตามความเหมาะสม */
+  width: auto;
+  margin-right: 16px;
+  cursor: pointer;
 }
 
 .custom-drawer {
