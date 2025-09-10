@@ -1,16 +1,26 @@
 {
-  "name": "x2-backend",
+  "name": "ProjectReal",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "My well-made Nuxt.js project",
+  "author": "",
+  "private": true,
   "scripts": {
-    "start": "node index.js"
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
   },
   "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "jsonwebtoken": "^8.5.1",
-    "mysql": "^2.18.1"
+    "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/pwa": "^3.0.0-0",
+    "axios": "^1.11.0",
+    "nuxt": "^2.0.0",
+    "vue-axios": "^3.5.2"
+  },
+  "devDependencies": {
+    "@nuxtjs/vuetify": "^1.0.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "prettier": "^1.19.1"
   }
 }
