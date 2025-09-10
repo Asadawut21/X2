@@ -80,16 +80,22 @@ export default {
 </script>
 
 <style>
-html, body, #__nuxt, #__layout, .v-application {
+.v-application {
+  background-image: url('/xx4.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-attachment: fixed !important;
+}
+
+html, body, #__nuxt, #__layout {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden;
 }
 
 .main-content-container {
-  min-height: calc(100vh - 64px - 48px); /* 64 = AppBar, 48 = Footer */
-  background-color: #ffffff;
+  min-height: calc(100vh - 64px - 48px);
+  background-color: transparent !important; /* ทำให้โปร่งใส */
   padding: 20px !important;
 }
 
@@ -98,7 +104,7 @@ html, body, #__nuxt, #__layout, .v-application {
 }
 
 .site-logo {
-  height: 40px; /* ปรับขนาดตามความเหมาะสม */
+  height: 40px;
   width: auto;
   margin-right: 16px;
   cursor: pointer;

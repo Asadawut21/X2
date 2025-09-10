@@ -52,7 +52,6 @@ function login() {
 <style scoped>
 .login-admin {
   min-height: 100vh;
-  background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
   display: flex;
   align-items: center;
   justify-content: center;
