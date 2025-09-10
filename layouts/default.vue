@@ -5,6 +5,7 @@
       color="primary"
       dark
       class="custom-app-bar"
+      height="80px"
     >
       <img src="/xx2.png" alt="RAGNA SHOP Logo" class="site-logo" @click="$router.push('/')" />
 
@@ -24,9 +25,6 @@
         {{ item.title }}
       </v-btn>
 
-      <v-btn icon @click.stop="rightDrawer = !rightDrawer">
-        <v-icon>mdi-cog</v-icon>
-      </v-btn>
     </v-app-bar>
 
     <v-main>
@@ -94,20 +92,27 @@ html, body, #__nuxt, #__layout {
 }
 
 .main-content-container {
-  min-height: calc(100vh - 64px - 48px);
-  background-color: transparent !important; /* ทำให้โปร่งใส */
+  min-height: calc(100vh - 80px - 48px);
+  background-color: transparent !important;
   padding: 20px !important;
 }
 
-.custom-app-bar {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+.custom-app-bar.v-app-bar {
+  height: 80px !important;
+}
+
+.custom-app-bar .v-toolbar__content {
+  height: 80px !important;
+  padding: 0 16px;
+  align-items: center;
 }
 
 .site-logo {
-  height: 40px;
-  width: auto;
+  height: 70px !important;
+  width: auto !important;
   margin-right: 16px;
   cursor: pointer;
+  flex: 0 0 auto;
 }
 
 .custom-drawer {
