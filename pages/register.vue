@@ -3,6 +3,9 @@
     <div class="form-card">
       <img src="/xx2.png" alt="Logo" class="page-logo" />
       <h2 class="form-title">สมัครสมาชิก</h2>
+      <div v-if="message" :class="['message', messageType]">
+        {{ message }}
+      </div>
       <form @submit.prevent="submitForm">
         <div class="input-group">
           <label for="name">ชื่อ-นามสกุล</label>
@@ -27,6 +30,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   data() {
     return {
@@ -35,19 +40,46 @@ export default {
         email: '',
         password: '',
         confirmPassword: ''
-      }
+      },
+      message: '',
+      messageType: '' // 'success' or 'error'
     };
   },
   methods: {
-    submitForm() {
-      alert('สมัครสมาชิกสำเร็จ!');
+    async submitForm() {
+      if (this.form.password !== this.form.confirmPassword) {
+        this.message = 'รหัสผ่านและยืนยันรหัสผ่านไม่ตรงกัน';
+        this.messageType = 'error';
+        return;
+      }
+
+      try {
+        // **สำคัญ:** แก้ไข URL ให้ตรงกับที่อยู่ของไฟล์ PHP ของคุณ
+        const response = await axios.post('http://localhost/api/register.php', this.form);
+        
+        if (response.data.success) {
+          this.message = response.data.message;
+          this.messageType = 'success';
+          // อาจจะ redirect ไปหน้า login หลังจากสมัครสำเร็จ
+          setTimeout(() => {
+            this.$router.push('/login');
+          }, 2000);
+        } else {
+          this.message = response.data.message;
+          this.messageType = 'error';
+        }
+      } catch (error) {
+        this.message = 'เกิดข้อผิดพลาดในการเชื่อมต่อกับเซิร์ฟเวอร์';
+        this.messageType = 'error';
+        console.error('Registration error:', error);
+      }
     }
   }
 };
 </script>
 
 <style scoped>
-/* ใช้ CSS เดียวกับหน้า login.vue */
+/* (Styles from your original file) */
 .form-container {
   min-height: calc(100vh - 64px);
   display: flex;
@@ -63,6 +95,18 @@ export default {
   width: 100%;
   max-width: 420px;
   text-align: center;
+}
+.message {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  color: #fff;
+}
+.message.success {
+  background-color: #28a745;
+}
+.message.error {
+  background-color: #dc3545;
 }
 .page-logo {
   max-width: 120px;

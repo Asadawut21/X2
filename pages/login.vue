@@ -3,6 +3,9 @@
     <div class="form-card">
       <img src="/xx2.png" alt="Logo" class="page-logo" />
       <h2 class="form-title">เข้าสู่ระบบ</h2>
+      <div v-if="message" :class="['message', messageType]">
+        {{ message }}
+      </div>
       <form @submit.prevent="handleLogin">
         <div class="input-group">
           <label for="email">อีเมล</label>
@@ -22,22 +25,50 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   data() {
     return {
       email: '',
       password: '',
+      message: '',
+      messageType: '' // 'success' or 'error'
     };
   },
   methods: {
-    handleLogin() {
-      alert(`อีเมล: ${this.email}\nรหัสผ่าน: ${this.password}`);
+    async handleLogin() {
+      try {
+        // **สำคัญ:** แก้ไข URL ให้ตรงกับที่อยู่ของไฟล์ PHP ของคุณ
+        const response = await axios.post('http://localhost/api/login.php', {
+          email: this.email,
+          password: this.password
+        });
+        
+        if (response.data.success) {
+          this.message = response.data.message;
+          this.messageType = 'success';
+          // ทำการ redirect หรือเก็บข้อมูล user ไว้ใน state/store
+          // ตัวอย่าง: ไปที่หน้าหลัก
+          setTimeout(() => {
+            this.$router.push('/');
+          }, 1500);
+        } else {
+          this.message = response.data.message;
+          this.messageType = 'error';
+        }
+      } catch (error) {
+        this.message = 'เกิดข้อผิดพลาดในการเชื่อมต่อกับเซิร์ฟเวอร์';
+        this.messageType = 'error';
+        console.error('Login error:', error);
+      }
     },
   },
 };
 </script>
 
 <style scoped>
+/* (Styles from your original file) */
 .form-container {
   min-height: calc(100vh - 64px);
   display: flex;
@@ -53,6 +84,18 @@ export default {
   width: 100%;
   max-width: 400px;
   text-align: center;
+}
+.message {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  color: #fff;
+}
+.message.success {
+  background-color: #28a745;
+}
+.message.error {
+  background-color: #dc3545;
 }
 .page-logo {
   max-width: 120px;
